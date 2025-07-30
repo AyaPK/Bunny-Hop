@@ -11,5 +11,23 @@ config_version=5
 [application]
 
 config/name="GMTK - 2025 - Loop"
+run/main_scene="uid://b0pfm8kc2t0mi"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/scale=2.0
+
+[global_group]
+
+player=""
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_5="walls"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

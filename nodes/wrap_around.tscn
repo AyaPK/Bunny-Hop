@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddbpkiec0m4im"]
+
+[ext_resource type="Script" uid="uid://cnym1sumjwqfo" path="res://nodes/wrap_around.gd" id="1_cjjtc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eguuj"]
+size = Vector2(25, 665)
+
+[node name="wrap_around" type="Node2D"]
+script = ExtResource("1_cjjtc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2.5, 322.5)
+shape = SubResource("RectangleShape2D_eguuj")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(3, 321)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
