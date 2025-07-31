@@ -18,7 +18,6 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print(can_transition)
 	if !can_transition:
 		return
 	if body in get_tree().get_nodes_in_group("player"):

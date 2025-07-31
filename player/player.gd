@@ -4,6 +4,7 @@ enum DIRECTIONS {LEFT, RIGHT}
 
 var pressing: DIRECTIONS
 var moving: DIRECTIONS
+var sanitised_velocity: int
 
 const BASE_SPEED = 100.0
 const MAX_ACCELERATION = 800.0
@@ -19,15 +20,12 @@ var camera: Camera2D
 @onready var rich_text_label: RichTextLabel = $"../CanvasLayer/RichTextLabel"
 
 func _ready() -> void:
-	# Find the camera in the scene
 	camera = get_viewport().get_camera_2d()
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Handle jump - bhop style (hold to jump on landing)
 	var jump_input = Input.is_action_pressed("ui_accept")
 	
 	if jump_input and is_on_floor():
@@ -36,38 +34,28 @@ func _physics_process(delta: float) -> void:
 	elif not jump_input:
 		jump_held = false
 
-	# Get the input direction
 	var direction := Input.get_axis("ui_left", "ui_right")
 	
-	# Bhop movement mechanics
 	if is_on_floor():
-		# Ground movement - capped at 200 speed and decays toward 200
 		var current_speed = abs(velocity.x)
 		
 		if direction:			
-			# Only accelerate if under the speed threshold
 			if current_speed < SPEED_THRESHOLD:
 				velocity.x += direction * MAX_ACCELERATION * delta
-				# Clamp to speed threshold
 				velocity.x = clamp(velocity.x, -SPEED_THRESHOLD, SPEED_THRESHOLD)
 			else:
-				# If above threshold, just maintain direction but decay toward threshold
 				velocity.x = move_toward(velocity.x, direction * SPEED_THRESHOLD, 100 * delta)
 		else:
-			# Apply friction when no input - decay toward 0
 			velocity.x = move_toward(velocity.x, 0, 1200 * delta)
 		
 	else:
-		# Air movement - allows for air strafing and speed building
 		if direction:
 			var current_speed = abs(velocity.x)
 			var acceleration = AIR_ACCELERATION
 			
-			# Reduce acceleration if moving very fast
 			if current_speed > SPEED_THRESHOLD:
 				acceleration *= SLOW_ACCELERATION_FACTOR
 			
-			# Air strafing - allow direction changes but with physics that feel good
 			velocity.x += direction * acceleration * delta
 	
 	if velocity.x > 0: 
@@ -83,9 +71,7 @@ func _physics_process(delta: float) -> void:
 	
 	if direction and pressing != moving:
 		velocity.x = move_toward(velocity.x, 0, 1200 * delta)
-	#
-	print("moving: "+str(moving)+"  -  pressing: "+str(pressing))
-
 	
 	move_and_slide()
-	rich_text_label.text = str(int(velocity.x)).substr(0, len(str(int(velocity.x)))-1)
+	sanitised_velocity = floor(abs(velocity.x/10))
+	rich_text_label.text = str(sanitised_velocity)
