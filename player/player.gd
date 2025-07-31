@@ -1,5 +1,9 @@
 class_name Player extends CharacterBody2D
 
+enum DIRECTIONS {LEFT, RIGHT}
+
+var pressing: DIRECTIONS
+var moving: DIRECTIONS
 
 const BASE_SPEED = 100.0
 const MAX_ACCELERATION = 800.0
@@ -40,7 +44,7 @@ func _physics_process(delta: float) -> void:
 		# Ground movement - capped at 200 speed and decays toward 200
 		var current_speed = abs(velocity.x)
 		
-		if direction:
+		if direction:			
 			# Only accelerate if under the speed threshold
 			if current_speed < SPEED_THRESHOLD:
 				velocity.x += direction * MAX_ACCELERATION * delta
@@ -53,10 +57,6 @@ func _physics_process(delta: float) -> void:
 			# Apply friction when no input - decay toward 0
 			velocity.x = move_toward(velocity.x, 0, 1200 * delta)
 		
-		## Always decay speed toward threshold if above it
-		#if current_speed > SPEED_THRESHOLD:
-			#var target_velocity = sign(velocity.x) * SPEED_THRESHOLD
-			#velocity.x = move_toward(velocity.x, target_velocity, 600 * delta)
 	else:
 		# Air movement - allows for air strafing and speed building
 		if direction:
@@ -69,6 +69,23 @@ func _physics_process(delta: float) -> void:
 			
 			# Air strafing - allow direction changes but with physics that feel good
 			velocity.x += direction * acceleration * delta
+	
+	if velocity.x > 0: 
+		moving = DIRECTIONS.RIGHT
+	elif velocity.x < 0:
+		moving = DIRECTIONS.LEFT
+	
+	if direction:
+		if direction > 0:
+			pressing = DIRECTIONS.RIGHT
+		elif direction < 0:
+			pressing = DIRECTIONS.LEFT
+	
+	if direction and pressing != moving:
+		velocity.x = move_toward(velocity.x, 0, 1200 * delta)
+	#
+	print("moving: "+str(moving)+"  -  pressing: "+str(pressing))
 
+	
 	move_and_slide()
 	rich_text_label.text = str(int(velocity.x)).substr(0, len(str(int(velocity.x)))-1)
