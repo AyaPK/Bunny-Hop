@@ -2,6 +2,8 @@ class_name Player extends CharacterBody2D
 
 enum DIRECTIONS {LEFT, RIGHT}
 
+@onready var death_particles: GPUParticles2D = $DeathParticles
+
 var pressing: DIRECTIONS
 var moving: DIRECTIONS
 var sanitised_velocity: int
@@ -22,7 +24,10 @@ var camera: Camera2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 
+var spawn_pos: Vector2
+
 func _ready() -> void:
+	spawn_pos = global_position
 	sprite.scale.x = -1
 	camera = get_viewport().get_camera_2d()
 
@@ -30,7 +35,7 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	var jump_input = Input.is_action_pressed("ui_accept")
+	var jump_input = Input.is_action_pressed("jump")
 	
 	if jump_input and is_on_floor() and accepting_input:
 		velocity.y = JUMP_VELOCITY
@@ -38,7 +43,7 @@ func _physics_process(delta: float) -> void:
 	elif not jump_input:
 		jump_held = false
 
-	var direction := Input.get_axis("ui_left", "ui_right")
+	var direction := Input.get_axis("left", "right")
 	if !accepting_input:
 		direction = 0
 	
