@@ -5,6 +5,7 @@ enum DIRECTIONS {LEFT, RIGHT}
 var pressing: DIRECTIONS
 var moving: DIRECTIONS
 var sanitised_velocity: int
+var accepting_input: bool = true
 
 const BASE_SPEED = 100.0
 const MAX_ACCELERATION = 800.0
@@ -17,9 +18,12 @@ const SLOW_ACCELERATION_FACTOR = 0.1
 var jump_held = false
 var camera: Camera2D
 
-@onready var rich_text_label: RichTextLabel = $"../CanvasLayer/RichTextLabel"
+@onready var rich_text_label: RichTextLabel = $"../ui/RichTextLabel"
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var sprite: Sprite2D = $Sprite2D
 
 func _ready() -> void:
+	sprite.scale.x = -1
 	camera = get_viewport().get_camera_2d()
 
 func _physics_process(delta: float) -> void:
@@ -28,13 +32,15 @@ func _physics_process(delta: float) -> void:
 
 	var jump_input = Input.is_action_pressed("ui_accept")
 	
-	if jump_input and is_on_floor():
+	if jump_input and is_on_floor() and accepting_input:
 		velocity.y = JUMP_VELOCITY
 		jump_held = true
 	elif not jump_input:
 		jump_held = false
 
 	var direction := Input.get_axis("ui_left", "ui_right")
+	if !accepting_input:
+		direction = 0
 	
 	if is_on_floor():
 		var current_speed = abs(velocity.x)
@@ -68,10 +74,26 @@ func _physics_process(delta: float) -> void:
 			pressing = DIRECTIONS.RIGHT
 		elif direction < 0:
 			pressing = DIRECTIONS.LEFT
-	
+
 	if direction and pressing != moving:
 		velocity.x = move_toward(velocity.x, 0, 1200 * delta)
 	
 	move_and_slide()
+	update_animation()
 	sanitised_velocity = floor(abs(velocity.x/10))
 	rich_text_label.text = str(sanitised_velocity)
+
+
+func update_animation() -> void:
+	if velocity != Vector2.ZERO:
+		animation_player.play("run")
+	else:
+		animation_player.play("idle")
+	
+	if !is_on_floor():
+		animation_player.play("jump")
+	
+	if velocity.x > 0:
+		sprite.scale.x = -1
+	elif velocity.x < 0:
+		sprite.scale.x = 1

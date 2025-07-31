@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cq7fistc4a7gj"]
+[gd_scene load_steps=5 format=3 uid="uid://cq7fistc4a7gj"]
 
 [ext_resource type="Script" uid="uid://b3wvxvmtevn3a" path="res://nodes/flag.gd" id="1_6pwfb"]
 [ext_resource type="Texture2D" uid="uid://td1niupie130" path="res://assets/flag.png" id="2_n08lt"]
+[ext_resource type="FontFile" uid="uid://b1jg0d0mi2cob" path="res://font/m5x7.ttf" id="3_n08lt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pwfb"]
 size = Vector2(10, 106)
@@ -14,11 +15,14 @@ position = Vector2(1, -54)
 texture = ExtResource("2_n08lt")
 
 [node name="SpeedIndicator" type="RichTextLabel" parent="."]
-offset_left = -47.0
-offset_top = -135.0
-offset_right = -5.0
-offset_bottom = -109.0
-theme_override_font_sizes/normal_font_size = 18
+modulate = Color(1, 1, 1, 0.545098)
+offset_left = -46.0
+offset_top = -115.0
+offset_right = 13.0
+offset_bottom = -80.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_n08lt")
+theme_override_font_sizes/normal_font_size = 35
 text = "00
 "
 horizontal_alignment = 1

@@ -15,6 +15,10 @@ run/main_scene="uid://b0pfm8kc2t0mi"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Globals="*res://00_globals/global_vars.gd"
+
 [display]
 
 window/stretch/scale=2.0
@@ -22,6 +26,13 @@ window/stretch/scale=2.0
 [global_group]
 
 player=""
+
+[gui]
+
+fonts/dynamic_fonts/use_oversampling=false
+theme/default_font_antialiasing=0
+theme/default_font_subpixel_positioning=0
+theme/default_font_multichannel_signed_distance_field=true
 
 [layer_names]
 

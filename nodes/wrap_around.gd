@@ -14,7 +14,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -29,9 +29,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	if side == SIDES.LEFT:
-		camera_2d.limit_left = global_position.x
+		camera_2d.limit_left = floor(global_position.x) + 15
 	elif side == SIDES.RIGHT:
-		camera_2d.limit_right = global_position.x
+		camera_2d.limit_right = floor(global_position.x)
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:

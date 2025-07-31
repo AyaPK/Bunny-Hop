@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8jht4nsfnd5x"]
+
+[ext_resource type="Script" uid="uid://xmotl3j2683l" path="res://levels/level.gd" id="1_ua8a3"]
+[ext_resource type="PackedScene" uid="uid://tseawibiexbw" path="res://nodes/ui.tscn" id="1_uho38"]
+[ext_resource type="Script" uid="uid://btlnbyined5yr" path="res://player/camera_2d.gd" id="2_ua8a3"]
+[ext_resource type="PackedScene" uid="uid://h1dovaylwy7n" path="res://player/player.tscn" id="3_1t8dn"]
+
+[node name="Template" type="Node2D"]
+script = ExtResource("1_ua8a3")
+
+[node name="ui" parent="." instance=ExtResource("1_uho38")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("2_ua8a3")
+
+[node name="Player" parent="." instance=ExtResource("3_1t8dn")]
+position = Vector2(-50, -44)
+collision_mask = 16

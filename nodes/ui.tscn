@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://tseawibiexbw"]
+
+[ext_resource type="Script" uid="uid://dm2k15gar626e" path="res://nodes/ui.gd" id="1_itr28"]
+[ext_resource type="FontFile" uid="uid://b1jg0d0mi2cob" path="res://font/m5x7.ttf" id="2_5lnhs"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_itr28")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 4.0
+offset_top = -1.0
+offset_right = 81.0
+offset_bottom = 39.0
+theme_override_fonts/normal_font = ExtResource("2_5lnhs")
+theme_override_font_sizes/normal_font_size = 30
+text = "0"
+
+[node name="complete" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 57.0
+offset_top = 112.0
+offset_right = 525.0
+offset_bottom = 262.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 13
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_offset_x = 5
+theme_override_fonts/normal_font = ExtResource("2_5lnhs")
+theme_override_font_sizes/normal_font_size = 80
+text = " LEVEL COMPLETE!"
+
+[node name="nextbutton" type="Button" parent="."]
+visible = false
+offset_left = 185.0
+offset_top = 183.0
+offset_right = 383.0
+offset_bottom = 233.0
+theme_override_fonts/font = ExtResource("2_5lnhs")
+theme_override_font_sizes/font_size = 30
+text = "Next Stage"
+
+[connection signal="pressed" from="nextbutton" to="." method="_on_nextbutton_pressed"]
