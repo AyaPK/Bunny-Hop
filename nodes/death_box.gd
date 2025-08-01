@@ -12,7 +12,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Player) -> void:
-	if body in get_tree().get_nodes_in_group("player"):
+	if body in get_tree().get_nodes_in_group("player") and body.accepting_input:
 		body.death_particles.emitting = true
 		body.sprite.hide()
 		body.accepting_input = false
