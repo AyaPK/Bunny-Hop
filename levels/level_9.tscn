@@ -36,7 +36,7 @@ script = ExtResource("5_sby73")
 
 [node name="Flag" parent="." instance=ExtResource("6_8ka2n")]
 position = Vector2(1201, -35)
-speed_requirement = 50
+speed_requirement = 30
 
 [node name="Player" parent="." instance=ExtResource("7_rqr00")]
 position = Vector2(-61, 48)

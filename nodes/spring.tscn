@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://c6nu0a6hcjqhj" path="res://nodes/spring.gd" id="1_etbj3"]
 [ext_resource type="Texture2D" uid="uid://bt73jlicfxiue" path="res://assets/spring.png" id="1_yn653"]
 
-[sub_resource type="Animation" id="Animation_yn653"]
-resource_name = "idle"
+[sub_resource type="Animation" id="Animation_etbj3"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -18,8 +18,8 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_etbj3"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_yn653"]
+resource_name = "idle"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

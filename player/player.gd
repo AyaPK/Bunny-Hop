@@ -40,6 +40,7 @@ func _physics_process(delta: float) -> void:
 	if jump_input and is_on_floor() and accepting_input:
 		velocity.y = JUMP_VELOCITY
 		jump_held = true
+		AudioManager.jump.play()
 	elif not jump_input:
 		jump_held = false
 
@@ -92,6 +93,7 @@ func _physics_process(delta: float) -> void:
 func update_animation() -> void:
 	if velocity != Vector2.ZERO:
 		animation_player.play("run")
+		animation_player.speed_scale = velocity.x/100
 	else:
 		animation_player.play("idle")
 	
@@ -102,3 +104,6 @@ func update_animation() -> void:
 		sprite.scale.x = -1
 	elif velocity.x < 0:
 		sprite.scale.x = 1
+
+func play_footstep() -> void:
+	AudioManager.footstep.play()

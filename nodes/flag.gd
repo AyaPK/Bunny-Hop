@@ -19,12 +19,10 @@ func _process(_delta: float) -> void:
 func _on_area_2d_body_entered(body: Player) -> void:
 	if body in get_tree().get_nodes_in_group("player"):
 		if body.sanitised_velocity >= speed_requirement:
-			print("player finished!")
+			AudioManager.level_complete.play()
 			body.accepting_input = false
 			ui.nextbutton.show()
 			ui.complete.show()
 			ui.nextbutton.grab_focus()
 			if body.velocity.y < 0:
 				body.velocity.y = 0
-		else:
-			print("more speed needed")
