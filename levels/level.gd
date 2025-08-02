@@ -4,7 +4,6 @@ class_name Level extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("a")
 	Globals.level = level_no
 	AudioManager.play_bgm()
 

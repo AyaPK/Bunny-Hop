@@ -3,6 +3,7 @@ class_name Player extends CharacterBody2D
 enum DIRECTIONS {LEFT, RIGHT}
 
 @onready var death_particles: GPUParticles2D = $DeathParticles
+@onready var run_particles: GPUParticles2D = $RunParticles
 
 var pressing: DIRECTIONS
 var moving: DIRECTIONS
@@ -23,6 +24,7 @@ var camera: Camera2D
 @onready var rich_text_label: RichTextLabel = $"../ui/RichTextLabel"
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var jump_particles: GPUParticles2D = $JumpParticles
 
 var spawn_pos: Vector2
 
@@ -34,6 +36,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	if is_on_floor():
+		jump_particles.emitting = false
+
 
 	var jump_input = Input.is_action_pressed("jump")
 	
@@ -41,6 +46,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		jump_held = true
 		AudioManager.jump.play()
+		jump_particles.emitting = true
 	elif not jump_input:
 		jump_held = false
 
@@ -84,6 +90,8 @@ func _physics_process(delta: float) -> void:
 	if direction and pressing != moving:
 		velocity.x = move_toward(velocity.x, 0, 1200 * delta)
 	
+	
+	emit_run_particles()
 	move_and_slide()
 	update_animation()
 	sanitised_velocity = floor(abs(velocity.x/10))
@@ -107,3 +115,10 @@ func update_animation() -> void:
 
 func play_footstep() -> void:
 	AudioManager.footstep.play()
+
+func emit_run_particles() -> void:
+	run_particles.speed_scale = velocity.x / 100
+	if is_on_floor() and velocity.x >= 200:
+		run_particles.emitting = true
+	else:
+		run_particles.emitting = false

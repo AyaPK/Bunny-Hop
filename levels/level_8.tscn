@@ -34,10 +34,6 @@ position = Vector2(306, -72)
 [node name="Spring" parent="." instance=ExtResource("10_lxcpb")]
 position = Vector2(23, 54)
 
-[node name="Player" parent="." instance=ExtResource("7_85qo6")]
-position = Vector2(-61, 48)
-collision_mask = 16
-
 [node name="wrap_around_right" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_6vtyo")]
 position = Vector2(459, -289)
 target = NodePath("../wrap_around_left")
@@ -63,3 +59,7 @@ theme_override_fonts/normal_font = ExtResource("9_nrsmh")
 bbcode_enabled = true
 text = "Sometimes you just need a bit of help"
 horizontal_alignment = 1
+
+[node name="Player" parent="." instance=ExtResource("7_85qo6")]
+position = Vector2(-61, 48)
+collision_mask = 16

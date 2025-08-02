@@ -37,10 +37,6 @@ script = ExtResource("5_4pmw3")
 position = Vector2(680, 54)
 speed_requirement = 12
 
-[node name="Player" parent="." instance=ExtResource("7_cl460")]
-position = Vector2(-61, 48)
-collision_mask = 16
-
 [node name="wrap_around_right" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_sbxnr")]
 position = Vector2(725, -290)
 target = NodePath("../wrap_around_left")
@@ -76,3 +72,7 @@ side = 1
 [node name="VerticalWrapTop" parent="." node_paths=PackedStringArray("target") instance=ExtResource("10_cicrg")]
 position = Vector2(283, -200)
 target = NodePath("../VerticalWrapBottom")
+
+[node name="Player" parent="." instance=ExtResource("7_cl460")]
+position = Vector2(-61, 48)
+collision_mask = 16

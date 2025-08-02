@@ -2,12 +2,24 @@ extends Camera2D
 
 @onready var player: Player = $"../Player"
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var shake_strength: float = 4.0
+var speed_threshold: float = 300.0
+var rng := RandomNumberGenerator.new()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _ready() -> void:
+	rng.randomize()
+
 func _process(_delta: float) -> void:
 	if player:
-		global_position.x = player.global_position.x
-	pass
+		var target_pos = player.global_position
+		shake_strength = (player.velocity.x - 300) / 200
+		if player.velocity.x > speed_threshold:
+			var shake_offset = Vector2(
+				rng.randf_range(-shake_strength, shake_strength),
+				rng.randf_range(-shake_strength, shake_strength)
+			)
+			global_position.x = target_pos.x
+			global_position.y = 0
+			global_position += shake_offset
+		else:
+			global_position.x = target_pos.x

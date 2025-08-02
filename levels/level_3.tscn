@@ -36,10 +36,6 @@ script = ExtResource("4_wj73x")
 position = Vector2(375, 54)
 speed_requirement = 15
 
-[node name="Player" parent="." instance=ExtResource("6_q42ux")]
-position = Vector2(-61, 48)
-collision_mask = 16
-
 [node name="wrap_around_right" parent="." instance=ExtResource("7_wi0qq")]
 position = Vector2(539, -287)
 
@@ -102,3 +98,7 @@ will show the speed
 you need to finish
 the level"
 horizontal_alignment = 1
+
+[node name="Player" parent="." instance=ExtResource("6_q42ux")]
+position = Vector2(-61, 48)
+collision_mask = 16

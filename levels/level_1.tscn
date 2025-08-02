@@ -35,10 +35,6 @@ script = ExtResource("4_5ot28")
 [node name="Flag" parent="." instance=ExtResource("5_aerfg")]
 position = Vector2(196, 54)
 
-[node name="Player" parent="." instance=ExtResource("6_nmsli")]
-position = Vector2(-61, 48)
-collision_mask = 16
-
 [node name="wrap_around_right" parent="." instance=ExtResource("7_betor")]
 position = Vector2(415, -286)
 
@@ -62,3 +58,7 @@ theme_override_fonts/normal_font = ExtResource("8_vjtdm")
 bbcode_enabled = true
 text = "Cross the goal post
 to finish the level"
+
+[node name="Player" parent="." instance=ExtResource("6_nmsli")]
+position = Vector2(-35, -5)
+collision_mask = 16

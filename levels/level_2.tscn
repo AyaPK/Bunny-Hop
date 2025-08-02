@@ -36,10 +36,6 @@ script = ExtResource("4_vm7no")
 [node name="Flag" parent="." instance=ExtResource("5_hbb88")]
 position = Vector2(196, 54)
 
-[node name="Player" parent="." instance=ExtResource("6_wcjpl")]
-position = Vector2(-61, 48)
-collision_mask = 16
-
 [node name="wrap_around_right" parent="." instance=ExtResource("7_5orea")]
 position = Vector2(415, -286)
 
@@ -73,3 +69,7 @@ position = Vector2(82, 123)
 
 [node name="DeathBox3" parent="." instance=ExtResource("10_sd18g")]
 position = Vector2(64, 123)
+
+[node name="Player" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(-61, 48)
+collision_mask = 16

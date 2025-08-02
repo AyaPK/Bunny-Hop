@@ -31,10 +31,6 @@ script = ExtResource("5_gci8k")
 position = Vector2(375, 54)
 speed_requirement = 40
 
-[node name="Player" parent="." instance=ExtResource("7_hv08k")]
-position = Vector2(-61, 48)
-collision_mask = 16
-
 [node name="wrap_around_right" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_p0827")]
 position = Vector2(459, -289)
 target = NodePath("../wrap_around_left")
@@ -78,3 +74,7 @@ bbcode_enabled = true
 text = "It might look like you can't
 gain enough speed...."
 horizontal_alignment = 1
+
+[node name="Player" parent="." instance=ExtResource("7_hv08k")]
+position = Vector2(-61, 48)
+collision_mask = 16

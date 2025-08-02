@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://h1dovaylwy7n"]
+[gd_scene load_steps=12 format=3 uid="uid://h1dovaylwy7n"]
 
 [ext_resource type="Script" uid="uid://cbrx0hr55g57w" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Texture2D" uid="uid://drmxeut3j3mcx" path="res://assets/character.png" id="2_rkbax"]
@@ -104,6 +104,31 @@ gravity = Vector3(0, 98, 0)
 scale_max = 2.5
 color = Color(0.770205, 0.396937, 0.691925, 1)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g1dw6"]
+particle_flag_disable_z = true
+direction = Vector3(-45, -80, 0)
+spread = 19.518
+initial_velocity_min = 40.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, 98, 0)
+scale_min = 2.0
+scale_max = 2.0
+color = Color(0.461992, 0.498779, 0.607445, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yw30f"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, 5, 0)
+direction = Vector3(1, 100, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 30, 0)
+scale_min = 2.0
+scale_max = 2.0
+scale_over_velocity_min = 10.0
+scale_over_velocity_max = 10.0
+color = Color(0.462745, 0.498039, 0.607843, 1)
+collision_mode = 2
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_oul6g")
 
@@ -130,3 +155,15 @@ one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_rkbax")
+
+[node name="RunParticles" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_g1dw6")
+
+[node name="JumpParticles" type="GPUParticles2D" parent="."]
+emitting = false
+lifetime = 0.7
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_yw30f")
