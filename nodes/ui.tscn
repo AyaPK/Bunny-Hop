@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://tseawibiexbw"]
+[gd_scene load_steps=5 format=3 uid="uid://tseawibiexbw"]
 
 [ext_resource type="Script" uid="uid://dm2k15gar626e" path="res://nodes/ui.gd" id="1_itr28"]
 [ext_resource type="FontFile" uid="uid://b1jg0d0mi2cob" path="res://font/m5x7.ttf" id="2_5lnhs"]
+[ext_resource type="StyleBox" uid="uid://cwxe4t8ssrc28" path="res://themes/new_style_box_texture_hovered.tres" id="3_rd3pg"]
+[ext_resource type="StyleBox" uid="uid://clcrdi15uovtp" path="res://themes/new_style_box_texture.tres" id="4_m6oha"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_itr28")
@@ -36,8 +38,14 @@ offset_left = 185.0
 offset_top = 183.0
 offset_right = 383.0
 offset_bottom = 233.0
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_5lnhs")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = ExtResource("3_rd3pg")
+theme_override_styles/normal = ExtResource("4_m6oha")
 text = "Next Stage"
 
 [connection signal="pressed" from="nextbutton" to="." method="_on_nextbutton_pressed"]

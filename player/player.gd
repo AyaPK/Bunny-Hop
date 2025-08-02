@@ -20,6 +20,7 @@ const SLOW_ACCELERATION_FACTOR = 0.1
 
 var jump_held = false
 var camera: Camera2D
+var playing_footsteps: bool = true
 
 @onready var rich_text_label: RichTextLabel = $"../ui/RichTextLabel"
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -95,7 +96,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	update_animation()
 	sanitised_velocity = floor(abs(velocity.x/10))
-	rich_text_label.text = str(sanitised_velocity)
+	if rich_text_label:
+		rich_text_label.text = str(sanitised_velocity)
 
 
 func update_animation() -> void:
@@ -114,7 +116,8 @@ func update_animation() -> void:
 		sprite.scale.x = 1
 
 func play_footstep() -> void:
-	AudioManager.footstep.play()
+	if playing_footsteps:
+		AudioManager.footstep.play()
 
 func emit_run_particles() -> void:
 	#run_particles.speed_scale = velocity.x / 100

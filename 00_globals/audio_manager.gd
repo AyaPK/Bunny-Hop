@@ -1,6 +1,7 @@
 extends Node
 
 @onready var bgm: AudioStreamPlayer2D = $BGM
+@onready var menu_music: AudioStreamPlayer2D = $MenuMusic
 @onready var footstep: AudioStreamPlayer2D = $Footstep
 @onready var jump: AudioStreamPlayer2D = $Jump
 @onready var level_complete: AudioStreamPlayer2D = $LevelComplete
