@@ -105,7 +105,9 @@ func update_animation() -> void:
 		animation_player.play("run")
 		animation_player.speed_scale = velocity.x/100
 	else:
-		animation_player.play("idle")
+		if animation_player.current_animation != "idle":
+			animation_player.speed_scale = 1
+			animation_player.play("idle")
 	
 	if !is_on_floor():
 		animation_player.play("jump")
