@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://ct8e76gudv21k"]
+[gd_scene load_steps=12 format=4 uid="uid://ct8e76gudv21k"]
 
 [ext_resource type="Script" uid="uid://xmotl3j2683l" path="res://levels/level.gd" id="1_vndwe"]
 [ext_resource type="TileSet" uid="uid://pjty4he5ev5w" path="res://tilemaps/tilesets/testing_ground_bg.tres" id="2_gn8iv"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://btlnbyined5yr" path="res://player/camera_2d.gd" id="5_cr0e4"]
 [ext_resource type="PackedScene" uid="uid://cq7fistc4a7gj" path="res://nodes/flag.tscn" id="6_wgo1c"]
 [ext_resource type="PackedScene" uid="uid://ddbpkiec0m4im" path="res://nodes/wrap_around.tscn" id="7_s88sk"]
-[ext_resource type="FontFile" uid="uid://b1jg0d0mi2cob" path="res://font/m5x7.ttf" id="8_aoyam"]
 [ext_resource type="PackedScene" uid="uid://v8fhvx5eof7i" path="res://nodes/vertical_wrap.tscn" id="9_5r2q3"]
 [ext_resource type="PackedScene" uid="uid://h1dovaylwy7n" path="res://player/player.tscn" id="10_b27ru"]
 [ext_resource type="PackedScene" uid="uid://bwhxn11uhsk75" path="res://nodes/death_box.tscn" id="10_enm3r"]
@@ -47,24 +46,6 @@ target = NodePath("../wrap_around_left")
 position = Vector2(-129, -283)
 target = NodePath("../wrap_around_right")
 side = 1
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="."]
-modulate = Color(1, 1, 1, 0.341176)
-offset_left = -78.0
-offset_top = -26.0
-offset_right = 124.0
-offset_bottom = 2.0
-theme_override_colors/table_border = Color(0, 0, 0, 1)
-theme_override_colors/table_even_row_bg = Color(0, 0, 0, 1)
-theme_override_colors/table_odd_row_bg = Color(0, 0, 0, 1)
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
-theme_override_colors/selection_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("8_aoyam")
-bbcode_enabled = true
-text = "The path isn't always
-straight forward"
-horizontal_alignment = 1
 
 [node name="VerticalWrapBottom" parent="." node_paths=PackedStringArray("target") instance=ExtResource("9_5r2q3")]
 position = Vector2(773, 189)
