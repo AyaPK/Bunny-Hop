@@ -117,7 +117,7 @@ func play_footstep() -> void:
 	AudioManager.footstep.play()
 
 func emit_run_particles() -> void:
-	run_particles.speed_scale = velocity.x / 100
+	#run_particles.speed_scale = velocity.x / 100
 	if is_on_floor() and velocity.x >= 200:
 		run_particles.emitting = true
 	else:

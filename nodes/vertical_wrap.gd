@@ -20,3 +20,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body in get_tree().get_nodes_in_group("player"):
 		target.can_transition = false
 		body.global_position.y = target.global_position.y
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body in get_tree().get_nodes_in_group("player"):
+		can_transition = true
