@@ -63,7 +63,6 @@ theme_override_font_sizes/normal_font_size = 80
 text = " LEVEL COMPLETE!"
 
 [node name="paused" type="RichTextLabel" parent="."]
-visible = false
 offset_left = 196.0
 offset_top = 51.0
 offset_right = 425.0

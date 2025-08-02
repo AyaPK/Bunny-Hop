@@ -7,6 +7,7 @@ extends Node2D
 @onready var _1: Button = $"LevelSelectButtons/LevelSelectButtonsRowOne/1"
 @onready var bunny: Sprite2D = $Bunny
 @onready var hop: Sprite2D = $Hop
+@onready var ui: Ui = $ui
 
 func _ready() -> void:
 	$ui.hide()
@@ -15,6 +16,7 @@ func _ready() -> void:
 	AudioManager.footstep.volume_db = 0.0
 	player.accepting_input = false
 	player.playing_footsteps = false
+	ui.is_in_level = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

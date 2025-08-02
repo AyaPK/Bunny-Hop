@@ -21,7 +21,7 @@ func _on_area_2d_body_entered(body: Player) -> void:
 		if body.sanitised_velocity >= speed_requirement:
 			AudioManager.level_complete.play()
 			body.accepting_input = false
-			ui.nextbutton.show()
+			ui.winbuttons.show()
 			ui.complete.show()
 			ui.nextbutton.grab_focus()
 			if body.velocity.y < 0:

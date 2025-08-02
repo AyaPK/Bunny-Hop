@@ -97,7 +97,7 @@ func _physics_process(delta: float) -> void:
 	update_animation()
 	sanitised_velocity = floor(abs(velocity.x/10))
 	if rich_text_label:
-		rich_text_label.text = str(sanitised_velocity)
+		rich_text_label.text = " "+str(sanitised_velocity)
 
 
 func update_animation() -> void:
