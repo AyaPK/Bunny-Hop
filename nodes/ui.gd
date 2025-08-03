@@ -35,6 +35,7 @@ func _process(_delta: float) -> void:
 func _on_nextbutton_pressed() -> void:
 	if Globals.level == 15:
 		AudioManager.bgm.stop()
+		Globals.complete = true
 		get_tree().change_scene_to_file("res://menu/main_menu.tscn")
 	else:
 		Globals.level += 1

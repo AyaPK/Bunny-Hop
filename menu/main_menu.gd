@@ -14,6 +14,8 @@ extends Node2D
 @onready var credits: PanelContainer = $Credits
 @onready var settings_back: Button = $Settings/VBoxContainer/HBoxContainer3/SettingsBack
 @onready var credits_back: Button = $Credits/VBoxContainer/CreditsBack
+@onready var tyfpback: Button = $Complete/VBoxContainer/tyfpback
+@onready var complete: PanelContainer = $Complete
 
 
 func _ready() -> void:
@@ -24,7 +26,11 @@ func _ready() -> void:
 	player.accepting_input = false
 	player.playing_footsteps = false
 	ui.is_in_level = false
-
+	
+	if Globals.complete:
+		Globals.complete = false
+		complete.show()
+		tyfpback.grab_focus()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -93,6 +99,16 @@ func _on_credits_back_pressed() -> void:
 	if player.is_on_floor():
 		player.velocity.y = -300
 	credits.hide()
+	hop.show()
+	bunny.show()
+	main_menu_buttons.show()
+	start_game.grab_focus()
+
+
+func _on_tyfpback_pressed() -> void:
+	if player.is_on_floor():
+		player.velocity.y = -300
+	complete.hide()
 	hop.show()
 	bunny.show()
 	main_menu_buttons.show()

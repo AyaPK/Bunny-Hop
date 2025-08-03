@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://ddyv600ti18pd"]
+[gd_scene load_steps=11 format=4 uid="uid://ddyv600ti18pd"]
 
 [ext_resource type="Script" uid="uid://xmotl3j2683l" path="res://levels/level.gd" id="1_01mlm"]
 [ext_resource type="TileSet" uid="uid://pjty4he5ev5w" path="res://tilemaps/tilesets/testing_ground_bg.tres" id="2_3n2sn"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://btlnbyined5yr" path="res://player/camera_2d.gd" id="5_inh47"]
 [ext_resource type="PackedScene" uid="uid://cq7fistc4a7gj" path="res://nodes/flag.tscn" id="6_6uant"]
 [ext_resource type="PackedScene" uid="uid://ddbpkiec0m4im" path="res://nodes/wrap_around.tscn" id="7_frcq8"]
+[ext_resource type="FontFile" uid="uid://b1jg0d0mi2cob" path="res://font/m5x7.ttf" id="8_01mlm"]
 [ext_resource type="PackedScene" uid="uid://bwhxn11uhsk75" path="res://nodes/death_box.tscn" id="9_l2vy3"]
 [ext_resource type="PackedScene" uid="uid://h1dovaylwy7n" path="res://player/player.tscn" id="10_7oc5t"]
 
@@ -44,6 +45,24 @@ target = NodePath("../wrap_around_left")
 position = Vector2(-129, -283)
 target = NodePath("../wrap_around_right")
 side = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 1, 0.341176)
+offset_left = 16.0
+offset_top = -13.0
+offset_right = 196.0
+offset_bottom = 15.0
+theme_override_colors/table_border = Color(0, 0, 0, 1)
+theme_override_colors/table_even_row_bg = Color(0, 0, 0, 1)
+theme_override_colors/table_odd_row_bg = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("8_01mlm")
+bbcode_enabled = true
+text = "Sometimes things are much
+easier than they first seem..."
+horizontal_alignment = 1
 
 [node name="Player" parent="." instance=ExtResource("10_7oc5t")]
 position = Vector2(-72, 52)

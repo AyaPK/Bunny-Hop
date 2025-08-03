@@ -544,6 +544,40 @@ theme_override_styles/hover = ExtResource("4_jc45y")
 theme_override_styles/normal = ExtResource("4_s8mfa")
 text = "Back"
 
+[node name="Complete" type="PanelContainer" parent="."]
+visible = false
+offset_left = 161.0
+offset_top = 19.0
+offset_right = 397.0
+offset_bottom = 301.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_b06p2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Complete"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Complete/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jc45y")
+theme_override_font_sizes/font_size = 24
+text = "Thank you for playing!
+
+This game is a prototype
+made for the GMTK Game
+Jam 2025.
+
+Any and all feedback is
+welcome!
+"
+
+[node name="tyfpback" type="Button" parent="Complete/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_jc45y")
+theme_override_styles/focus = ExtResource("4_jc45y")
+theme_override_styles/hover = ExtResource("4_jc45y")
+theme_override_styles/normal = ExtResource("4_s8mfa")
+text = "Back"
+
 [node name="G" type="Sprite2D" parent="."]
 position = Vector2(453, 290)
 scale = Vector2(0.0351304, 0.0351304)
@@ -563,3 +597,4 @@ texture = ExtResource("15_lb3k0")
 [connection signal="toggled" from="Settings/VBoxContainer/HBoxContainer2/SfxCheckBox" to="." method="_on_sfx_check_box_toggled"]
 [connection signal="pressed" from="Settings/VBoxContainer/HBoxContainer3/SettingsBack" to="." method="_on_settings_back_pressed"]
 [connection signal="pressed" from="Credits/VBoxContainer/CreditsBack" to="." method="_on_credits_back_pressed"]
+[connection signal="pressed" from="Complete/VBoxContainer/tyfpback" to="." method="_on_tyfpback_pressed"]
