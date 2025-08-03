@@ -45,6 +45,7 @@ func _on_retrybutton_pressed() -> void:
 	get_tree().reload_current_scene()
 
 func _on_restartbutton_pressed() -> void:
+	AudioManager.bgm.stream_paused = false
 	get_tree().reload_current_scene()
 
 func _on_quitbutton_pressed() -> void:
