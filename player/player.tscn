@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cbrx0hr55g57w" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Texture2D" uid="uid://drmxeut3j3mcx" path="res://assets/character.png" id="2_rkbax"]
+[ext_resource type="PackedScene" uid="uid://cpoyy7beu7ul5" path="res://nodes/death_particles.tscn" id="3_g1dw6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkbax"]
 radius = 6.0
@@ -94,16 +95,6 @@ _data = {
 &"run": SubResource("Animation_yw30f")
 }
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rkbax"]
-particle_flag_disable_z = true
-velocity_pivot = Vector3(0, -400, 0)
-direction = Vector3(1, -400, 0)
-initial_velocity_min = 22.99
-initial_velocity_max = 109.2
-gravity = Vector3(0, 98, 0)
-scale_max = 2.5
-color = Color(0.900742, 0.677007, 0.844276, 1)
-
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g1dw6"]
 particle_flag_disable_z = true
 direction = Vector3(-45, -80, 0)
@@ -147,14 +138,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_g6k8r")
 }
 
-[node name="DeathParticles" type="GPUParticles2D" parent="."]
-emitting = false
-amount = 30
-lifetime = 2.0
-one_shot = true
-speed_scale = 2.0
-explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_rkbax")
+[node name="DeathParticles" parent="." instance=ExtResource("3_g1dw6")]
 
 [node name="RunParticles" type="GPUParticles2D" parent="."]
 emitting = false

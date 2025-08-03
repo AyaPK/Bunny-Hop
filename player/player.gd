@@ -2,7 +2,7 @@ class_name Player extends CharacterBody2D
 
 enum DIRECTIONS {LEFT, RIGHT}
 
-@onready var death_particles: GPUParticles2D = $DeathParticles
+#@onready var death_particles: GPUParticles2D = $DeathParticles
 @onready var run_particles: GPUParticles2D = $RunParticles
 
 var pressing: DIRECTIONS

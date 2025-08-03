@@ -12,7 +12,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if player:
 		var target_pos = player.global_position
-		shake_strength = (player.velocity.x - 300) / 200
+		shake_strength = (player.velocity.x - 300) / 250
 		if player.velocity.x > speed_threshold:
 			var shake_offset = Vector2(
 				rng.randf_range(-shake_strength, shake_strength),
