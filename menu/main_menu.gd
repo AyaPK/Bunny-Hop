@@ -8,6 +8,13 @@ extends Node2D
 @onready var bunny: Sprite2D = $Bunny
 @onready var hop: Sprite2D = $Hop
 @onready var ui: Ui = $ui
+@onready var music_check_box: CheckBox = $Settings/VBoxContainer/HBoxContainer/MusicCheckBox
+@onready var settings: PanelContainer = $Settings
+@onready var settings_button: Button = $MainMenuButtons/VBoxContainer2/Settings
+@onready var credits: PanelContainer = $Credits
+@onready var settings_back: Button = $Settings/VBoxContainer/HBoxContainer3/SettingsBack
+@onready var credits_back: Button = $Credits/VBoxContainer/CreditsBack
+
 
 func _ready() -> void:
 	$ui.hide()
@@ -26,6 +33,11 @@ func _process(_delta: float) -> void:
 func _on_settings_pressed() -> void:
 	if player.is_on_floor():
 		player.velocity.y = -300
+	main_menu_buttons.hide()
+	bunny.hide()
+	hop.hide()
+	settings.show()
+	settings_back.grab_focus()
 
 func _on_start_game_pressed() -> void:
 	AudioManager.menu_music.stop()
@@ -48,4 +60,40 @@ func _on_back_pressed() -> void:
 	hop.show()
 	bunny.show()
 	start_game.grab_focus()
-	
+
+func _on_music_check_box_toggled(toggled_on: bool) -> void:
+	if player.is_on_floor():
+		player.velocity.y = -300
+	AudioServer.set_bus_mute(1, toggled_on)
+
+func _on_sfx_check_box_toggled(toggled_on: bool) -> void:
+	if player.is_on_floor():
+		player.velocity.y = -300
+	AudioServer.set_bus_mute(2, toggled_on)
+
+func _on_settings_back_pressed() -> void:
+	if player.is_on_floor():
+		player.velocity.y = -300
+	settings.hide()
+	hop.show()
+	bunny.show()
+	main_menu_buttons.show()
+	start_game.grab_focus()
+
+func _on_credits_pressed() -> void:
+	if player.is_on_floor():
+		player.velocity.y = -300
+	main_menu_buttons.hide()
+	credits.show()
+	bunny.hide()
+	hop.hide()
+	credits_back.grab_focus()
+
+func _on_credits_back_pressed() -> void:
+	if player.is_on_floor():
+		player.velocity.y = -300
+	credits.hide()
+	hop.show()
+	bunny.show()
+	main_menu_buttons.show()
+	start_game.grab_focus()

@@ -14,12 +14,17 @@ config/name="GMTK - 2025 - Loop"
 run/main_scene="uid://dihlft0fbgip6"
 config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=60
+boot_splash/image="uid://kqd0f0j3ebal"
 config/icon="res://icon.svg"
 
 [autoload]
 
 Globals="*res://00_globals/global_vars.gd"
 AudioManager="*res://00_globals/AudioManager.tscn"
+
+[debug]
+
+gdscript/max_fps=60
 
 [display]
 

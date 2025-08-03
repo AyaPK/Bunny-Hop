@@ -17,38 +17,45 @@ stream = ExtResource("2_eeoum")
 max_distance = 4096.0
 attenuation = 1e-05
 panning_strength = 0.0
+bus = &"Music"
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_yb0hs")
 max_distance = 4096.0
 attenuation = 1e-05
 panning_strength = 0.0
+bus = &"Music"
 
 [node name="Footstep" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_wsmjd")
 max_distance = 4096.0
 attenuation = 1e-05
+bus = &"SFX"
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_yuxai")
 volume_db = -6.0
 max_distance = 4096.0
 attenuation = 1e-05
+bus = &"SFX"
 
 [node name="LevelComplete" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_1338a")
 volume_db = -2.971
 max_distance = 4096.0
 attenuation = 1e-05
+bus = &"SFX"
 
 [node name="Spring" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_flhln")
 volume_db = -6.0
 max_distance = 4096.0
 attenuation = 1e-05
+bus = &"SFX"
 
 [node name="Death" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_l6vsh")
 volume_db = -5.0
 max_distance = 4096.0
 attenuation = 1e-05
+bus = &"SFX"

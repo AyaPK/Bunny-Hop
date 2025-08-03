@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://4oeef5h16dfu"]
+[gd_scene load_steps=12 format=4 uid="uid://4oeef5h16dfu"]
 
 [ext_resource type="Script" uid="uid://xmotl3j2683l" path="res://levels/level.gd" id="1_at1ld"]
 [ext_resource type="TileSet" uid="uid://pjty4he5ev5w" path="res://tilemaps/tilesets/testing_ground_bg.tres" id="1_dfjjl"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ddbpkiec0m4im" path="res://nodes/wrap_around.tscn" id="7_5orea"]
 [ext_resource type="FontFile" uid="uid://b1jg0d0mi2cob" path="res://font/m5x7.ttf" id="8_0ourt"]
 [ext_resource type="PackedScene" uid="uid://bwhxn11uhsk75" path="res://nodes/death_box.tscn" id="10_sd18g"]
+[ext_resource type="Texture2D" uid="uid://crcpd0n1g1q1i" path="res://assets/jump_buttons.png" id="11_vm7no"]
 
 [node name="Level02" type="Node2D"]
 script = ExtResource("1_at1ld")
@@ -69,6 +70,12 @@ position = Vector2(82, 123)
 
 [node name="DeathBox3" parent="." instance=ExtResource("10_sd18g")]
 position = Vector2(64, 123)
+
+[node name="JumpButtons" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.564706)
+position = Vector2(61, 34)
+scale = Vector2(0.158163, 0.158163)
+texture = ExtResource("11_vm7no")
 
 [node name="Player" parent="." instance=ExtResource("6_wcjpl")]
 position = Vector2(-61, 48)

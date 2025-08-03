@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dihlft0fbgip6"]
+[gd_scene load_steps=24 format=4 uid="uid://dihlft0fbgip6"]
 
 [ext_resource type="TileSet" uid="uid://pjty4he5ev5w" path="res://tilemaps/tilesets/testing_ground_bg.tres" id="1_chmv6"]
 [ext_resource type="Script" uid="uid://cc8na1k3k06f2" path="res://menu/main_menu.gd" id="1_s8mfa"]
@@ -13,6 +13,9 @@
 [ext_resource type="Script" uid="uid://cybenu23a5hau" path="res://menu/level_button.gd" id="10_k5y3h"]
 [ext_resource type="Texture2D" uid="uid://ps6hxf4tnjoq" path="res://assets/bunny.png" id="12_1vfm6"]
 [ext_resource type="Texture2D" uid="uid://7g66pkcvdbbw" path="res://assets/hop.png" id="13_23ste"]
+[ext_resource type="Texture2D" uid="uid://o6chddp3up60" path="res://assets/button_outline.png" id="14_23ste"]
+[ext_resource type="Texture2D" uid="uid://dd0irmejqfdof" path="res://assets/g.png" id="14_b06p2"]
+[ext_resource type="Texture2D" uid="uid://chjyln7qwnk5x" path="res://assets/loop.png" id="15_lb3k0"]
 
 [sub_resource type="Animation" id="Animation_23ste"]
 length = 0.001
@@ -20,7 +23,7 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
+tracks/0/interp = 4
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
@@ -58,7 +61,7 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
+tracks/0/interp = 4
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
@@ -89,6 +92,13 @@ _data = {
 &"RESET": SubResource("Animation_lb3k0"),
 &"idle": SubResource("Animation_b06p2")
 }
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b06p2"]
+texture = ExtResource("14_23ste")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_s8mfa")
@@ -442,7 +452,114 @@ libraries = {
 }
 autoplay = "idle"
 
+[node name="Settings" type="PanelContainer" parent="."]
+visible = false
+offset_left = 165.0
+offset_top = 70.0
+offset_right = 401.0
+offset_bottom = 193.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_b06p2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Settings/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jc45y")
+theme_override_font_sizes/font_size = 28
+text = "Mute Music"
+
+[node name="MusicCheckBox" type="CheckBox" parent="Settings/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Settings/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jc45y")
+theme_override_font_sizes/font_size = 28
+text = "Mute SFX"
+
+[node name="SfxCheckBox" type="CheckBox" parent="Settings/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Settings/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="SettingsBack" type="Button" parent="Settings/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_jc45y")
+theme_override_styles/focus = ExtResource("4_jc45y")
+theme_override_styles/hover = ExtResource("4_jc45y")
+theme_override_styles/normal = ExtResource("4_s8mfa")
+text = "Back"
+
+[node name="Credits" type="PanelContainer" parent="."]
+visible = false
+offset_left = 161.0
+offset_top = 19.0
+offset_right = 397.0
+offset_bottom = 301.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_b06p2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jc45y")
+theme_override_font_sizes/font_size = 30
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jc45y")
+theme_override_font_sizes/font_size = 24
+text = "Programming: Aya
+Game Design: Aya
+Music: Fictium, Fesilyan
+SFX: Aya
+Art: Kenney.nl, Aya
+
+Made for the GMTK Game
+Jam 2025"
+
+[node name="CreditsBack" type="Button" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_jc45y")
+theme_override_styles/focus = ExtResource("4_jc45y")
+theme_override_styles/hover = ExtResource("4_jc45y")
+theme_override_styles/normal = ExtResource("4_s8mfa")
+text = "Back"
+
+[node name="G" type="Sprite2D" parent="."]
+position = Vector2(453, 290)
+scale = Vector2(0.0351304, 0.0351304)
+texture = ExtResource("14_b06p2")
+
+[node name="Loop" type="Sprite2D" parent="."]
+position = Vector2(501, 292)
+scale = Vector2(0.0902172, 0.0902172)
+texture = ExtResource("15_lb3k0")
+
 [connection signal="pressed" from="MainMenuButtons/VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="MainMenuButtons/VBoxContainer/LevelSelect" to="." method="_on_level_select_pressed"]
 [connection signal="pressed" from="MainMenuButtons/VBoxContainer2/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MainMenuButtons/VBoxContainer2/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="LevelSelectButtons/HBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="toggled" from="Settings/VBoxContainer/HBoxContainer/MusicCheckBox" to="." method="_on_music_check_box_toggled"]
+[connection signal="toggled" from="Settings/VBoxContainer/HBoxContainer2/SfxCheckBox" to="." method="_on_sfx_check_box_toggled"]
+[connection signal="pressed" from="Settings/VBoxContainer/HBoxContainer3/SettingsBack" to="." method="_on_settings_back_pressed"]
+[connection signal="pressed" from="Credits/VBoxContainer/CreditsBack" to="." method="_on_credits_back_pressed"]

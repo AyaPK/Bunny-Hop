@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bgw8u2wqrg7rk"]
+[gd_scene load_steps=11 format=4 uid="uid://bgw8u2wqrg7rk"]
 
 [ext_resource type="Script" uid="uid://xmotl3j2683l" path="res://levels/level.gd" id="1_3sk1a"]
 [ext_resource type="TileSet" uid="uid://pjty4he5ev5w" path="res://tilemaps/tilesets/testing_ground_bg.tres" id="1_l53as"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://h1dovaylwy7n" path="res://player/player.tscn" id="6_nmsli"]
 [ext_resource type="PackedScene" uid="uid://ddbpkiec0m4im" path="res://nodes/wrap_around.tscn" id="7_betor"]
 [ext_resource type="FontFile" uid="uid://b1jg0d0mi2cob" path="res://font/m5x7.ttf" id="8_vjtdm"]
+[ext_resource type="Texture2D" uid="uid://bn7euhi4mrf38" path="res://assets/direction_buttons.png" id="10_08mmt"]
 
 [node name="Level01" type="Node2D"]
 script = ExtResource("1_3sk1a")
@@ -59,6 +60,12 @@ bbcode_enabled = true
 text = "Cross the goal post
 to finish the level"
 
+[node name="DirectionButtons" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.643137)
+position = Vector2(-23, 0)
+scale = Vector2(0.265625, 0.265625)
+texture = ExtResource("10_08mmt")
+
 [node name="Player" parent="." instance=ExtResource("6_nmsli")]
-position = Vector2(-35, -5)
+position = Vector2(-57, 51)
 collision_mask = 16
