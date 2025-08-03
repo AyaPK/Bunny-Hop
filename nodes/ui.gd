@@ -33,8 +33,13 @@ func _process(_delta: float) -> void:
 			paused.hide()
 
 func _on_nextbutton_pressed() -> void:
-	Globals.level += 1
-	get_tree().change_scene_to_file("res://levels/level_"+str(Globals.level)+".tscn")
+	print(Globals.level)
+	if Globals.level == 15:
+		AudioManager.bgm.stop()
+		get_tree().change_scene_to_file("res://menu/main_menu.tscn")
+	else:
+		Globals.level += 1
+		get_tree().change_scene_to_file("res://levels/level_"+str(Globals.level)+".tscn")
 
 func _on_retrybutton_pressed() -> void:
 	get_tree().reload_current_scene()
