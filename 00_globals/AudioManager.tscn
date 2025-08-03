@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cmp5pjxgtlwmt" path="res://00_globals/audio_manager.gd" id="1_167cj"]
 [ext_resource type="AudioStream" uid="uid://omxv77vtgral" path="res://assets/music/8bitsurf.mp3" id="2_eeoum"]
 [ext_resource type="AudioStream" uid="uid://cermkxqky4gw" path="res://assets/sfx/step.wav" id="3_wsmjd"]
-[ext_resource type="AudioStream" uid="uid://dpkboybk3cxho" path="res://assets/music/menu.wav" id="3_yb0hs"]
+[ext_resource type="AudioStream" uid="uid://b5e6w0coikkun" path="res://assets/music/menu.mp3" id="3_yb0hs"]
 [ext_resource type="AudioStream" uid="uid://cgnb101hakjfg" path="res://assets/sfx/jump.wav" id="3_yuxai"]
 [ext_resource type="AudioStream" uid="uid://deq7a2pjupi2w" path="res://assets/sfx/level_complete.wav" id="5_1338a"]
 [ext_resource type="AudioStream" uid="uid://dy5ylb8exxuru" path="res://assets/sfx/spring.wav" id="6_flhln"]

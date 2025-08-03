@@ -13,6 +13,7 @@ config_version=5
 config/name="GMTK - 2025 - Loop"
 run/main_scene="uid://dihlft0fbgip6"
 config/features=PackedStringArray("4.4", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
